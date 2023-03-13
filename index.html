@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Minha SPA</title>
+    <style>
+      /* Estilo da página */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+      }
+      h1 {
+        text-align: center;
+      }
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 5px #ccc;
+      }
+      nav {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      nav a {
+        margin: 0 10px;
+        padding: 5px 10px;
+        border-radius: 5px;
+        color: #fff;
+        background-color: #333;
+        text-decoration: none;
+      }
+      nav a:hover {
+        background-color: #555;
+      }
+      /* Estilo das páginas internas */
+      .page {
+        display: none;
+      }
+      .page.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Minha SPA</h1>
+    <div class="container">
+      <nav>
+        <a href="#home">Home</a>
+        <a href="#about">Sobre</a>
+        <a href="#contact">Contato</a>
+      </nav>
+      <div id="home" class="page active">
+        <h2>Bem-vindo à minha SPA!</h2>
+        <p>Esta é a página principal.</p>
+      </div>
+      <div id="about" class="page">
+        <h2>Sobre mim</h2>
+        <p>Eu sou um desenvolvedor web apaixonado por tecnologia.</p>
+      </div>
+      <div id="contact" class="page">
+        <h2>Contato</h2>
+        <p>Entre em contato comigo por e-mail ou telefone:</p>
+        <ul>
+          <li>E-mail: exemplo@exemplo.com</li>
+          <li>Telefone: (11) 1234-5678</li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      // Função para mudar de página quando o link é clicado
+      function changePage() {
+        // Esconde todas as páginas
+        var pages = document.getElementsByClassName("page");
+        for (var i = 0; i < pages.length; i++) {
+          pages[i].classList.remove("active");
+        }
+        // Mostra a página correspondente ao link clicado
+        var hash = window.location.hash.substr(1);
+        var page = document.getElementById(hash);
+        if (page) {
+          page.classList.add("active");
+        }
+      }
+      // Ativa a função quando a página é carregada
+      window.onload = changePage;
+      // Ativa a função quando um link é clicado
+      window.onhashchange = changePage;
+    </script>
+  </body>
+</html>
